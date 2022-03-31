@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        // Get the content from <p class="demo">hello world</p>
+        var str = "<p class='demo'>hello world</p>";
+        //the feature of the str 
+        var reg = /<(\w+)[^<>]*>(.*)<\/\1>/
+        //replace
+        var result = reg.exec(str);
+        console.log(result, result[2]);
+
+        // Transform div#demo.demo to <div id="demo" class="demo"></div>
+        var str2 = "div#demo.demo";
+        // the fuature of the string
+        var reg2 = /(\w+)\#(\w+)\.(\w+)/;
+        //
+        var result2 = str2.replace(reg2, '<$1 id="$2" class="$3"><\/$1>');
+        var result3 = str2.replace (reg2, function (match, $1, $2, $3) {
+            return '<' + $1 + ' id=' + '"' + $2 + '"' + ' class='+'"' + $3 + '"'+ '></' + $3 + '>';
+        })
+        console.log(result2, result3)
+    </script>
+</body>
+</html>
