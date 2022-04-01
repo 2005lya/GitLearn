@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .demo {
+            border: 1px solid #ccc;
+            padding: 10px 50px;
+            margin: 0 auto;
+            width: 200px;
+            height: 200px;
+        }
+        .demo p {
+            margin-bottom: 20px;
+        }
+        #showText {
+            background-color: pink;
+            color: red;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="demo" id="app">
+       <p>username :<input type="text" name="username" value="input your username" size="30"></p>
+       <p>password :<input type="password" size="30"></p>
+       <p><input type="checkbox" name="" id=""><label for="">click to choose</label></p>
+       <p id="showText">tips</p>
+    </div>
+    <script>
+        var app = document.getElementById('app');
+        var showText = document.getElementById('showText');
+        app.onmouseenter = function (){
+            showText.style.display = 'block';
+        }
+        app.onmouseleave = function (){
+            showText.style.display = 'none';
+        }
+    </script>
+</body>
+</html>
