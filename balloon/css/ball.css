@@ -1,0 +1,52 @@
+.container {
+    width: 700px;
+    height: 700px;
+    border: 1px solid #000;
+    margin: 0 auto;
+    /* float: left; */
+    /* display: block; */
+}
+.left {
+    width: 50%;
+    height: 500px;
+    position: relative;
+    float: left;
+    
+}
+.left #ball {
+    width: 150px;
+    height: 180px;
+    background-image: url('../imgs/ball.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    display: block150;
+    
+} 
+.text {
+    float: left;
+    width:50%;
+    height: 500px;
+
+}
+.text p {
+    margin-top: 60px;
+    margin-left: 30px;
+    
+}
+.button {
+    width: 100%;
+    height: 100%;
+}
+.button #btn1 {
+    margin-left: 200px;
+    margin-top: 100px;
+}
+.button #btn2 {
+    margin-left: 100px;
+}
