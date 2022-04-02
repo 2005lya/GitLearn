@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app1">
+        <p>item1</p>
+        <p>item2</p>
+        <p>item3</p>
+        <p>item4</p>
+    </div>
+    <div id="app2">
+        <p>item1</p>
+        <p>item2</p>
+        <p>item3</p>
+        <p>item4</p>
+    </div>
+    <script>
+        var p1 = document.getElementById('app1').getElementsByTagName('p');
+        var p2 = document.getElementById('app2').getElementsByTagName('p');
+        
+        for(var i = 0; i < p1.length; i++){
+            p1[i].index = i;
+            p1[i].onclick = function (){
+                for(var j = 0; j<p2.length; j++){
+                    p2[j].style.backgroundColor ='transparent';
+                }
+                p2[this.index].style.backgroundColor = 'pink';
+            }
+        }
+        
+
+    </script>
+</body>
+</html>
