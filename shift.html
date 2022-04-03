@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .app {
+            border: 1px solid #000;
+            display: inline-block;
+            margin: 0 auto;
+        }
+        .app .header {
+            line-height: 50px;
+            border: 1px solid #000;
+        }
+        .app .header .span {
+            padding: 0 50px;
+            font-size: 90px;
+        }
+        .app .header span.choose {
+            color: red;
+        }
+        .app .body {
+            height: 500px;
+            padding: 10px;
+        }
+        .app .body p {
+            display: none;
+        }
+        .app .body p.choose {
+            display: block;
+
+        }
+
+    </style>
+</head>
+<body>
+    <div class="app" id="app">
+        <div class="header">
+            <span class="choose">Home</span>
+            <span>News</span>
+            <span>Sports</span>
+            <span>Reel</span>
+            <span>worklife</span>
+            <span>Travel</span>
+        </div>
+        <div class="body">
+            <p class="choose">Welcome to BBC!</p>
+            <p>Ukraine says it has retaken entire Kyiv region</p>
+            <p>Cricket World Cup</p>
+            <p>Istanbul's Bosphorus obsession</p>
+            <p>The rise of platonic life partnerships</p>
+            <p>The world's most agile countries</p>
+        </div>
+    </div>  
+    <script>
+        var app = document.getElementById('app');
+        var spans = app.getElementsByTagName('span')
+        var ps = app.getElementsByTagName('p')
+
+        for(var i = 0; i < spans.length; i++){
+            spans[i].index = i;
+            spans[i].onclick = function (){
+                for(var j = 0; j<ps.length; j++){
+                    spans[j].className = '';
+                    ps[j].className = '';
+                }
+                spans[this.index].className = 'choose';
+                ps[this.index].className = 'choose';
+            }
+
+        }
+    </script>  
+</body>
+</html>
