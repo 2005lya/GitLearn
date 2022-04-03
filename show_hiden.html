@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 400px;
+            height: 300px;
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+    <button>show</button>
+    <button>hiden</button>
+    <button>shift</button>
+    <hr>
+    <div class="box"></div>
+    <script src="./jquery.js"></script>
+    <script>
+        var btns = $('button');
+        var box = $('.box');
+        // console.log(btns[0], btns.eq(0))
+        btns.eq(0).click(function (){
+            box.show(1000);
+        });
+        btns.eq(1).click(function (){
+            box.hide(1000);
+        });
+        btns.eq(2).click(function (){
+            box.toggle(1000);
+        });
+    </script>
+</body>
+</html>
