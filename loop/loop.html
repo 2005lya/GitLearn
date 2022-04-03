@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #app {
+            width: 500px;
+            height: 333px;
+            margin: 0 auto;
+        }
+        #app img {
+            position: absolute;
+        }
+        .btns {
+            margin-top: 30px;
+            text-align: center;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="app">
+        <img src="./imgs/1.jpeg" alt="">
+        <img src="./imgs/2.jpeg" alt="">
+        <img src="./imgs/3.jpeg" alt="">
+        <img src="./imgs/4.jpeg" alt="">
+        <img src="./imgs/5.jpeg" alt="">
+        <img src="./imgs/6.jpeg" alt="">
+        <img src="./imgs/7.jpeg" alt="">
+    </div>
+    <div class="btns">
+        <button>next</button>
+        <button>last</button>
+    </div>
+
+    <script src="../jquery.js"></script>
+    <script>
+        var imgs = $('img');
+        var btns = $('.btns');
+        var index = 0;
+        imgs.hide();
+        imgs.eq(index).show();
+        
+        btns.eq(0).click(function (){
+            imgs.eq(index).fadeOut(500);
+            index++;
+            if(index >= 7){
+            index = 0;}
+            imgs.eq(index).fadeIn(500);
+
+
+        })
+        btns.eq(1).click (function (){
+            imgs.eq(index).fadeOut(500);
+            index--;
+            if(index < 0){
+            index = 6;}
+            imgs.eq(index).fadeIn(500);
+        })
+    </script>
+    
+</body>
+</html>
