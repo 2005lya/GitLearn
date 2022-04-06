@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        img {
+            display: block;
+            /* width: 500px;
+            height: 333px; */
+        }
+        .list {
+            width: 1100px;
+            height: 333px;
+            margin: 50px auto;
+            border: 1px solid #000;
+            position: relative;
+            overflow: hidden;
+        }
+        .list li {
+            position: absolute;
+            width: 500px;
+            height: 333px;
+        }
+        .mask {
+            width: 500px;
+            height: 333px;
+            position: absolute;
+            background-color: black;
+            opacity: 0.6;
+            top: 0;
+            left: 0;
+        }
+
+    </style>
+</head>
+<body>
+    <ul class="list">
+        <li>
+            <img src="./imgs/1.jpeg" alt="">
+            <div class="mask"></div>
+        </li>
+        <li>
+            <img src="./imgs/2.jpeg" alt="">
+            <div class="mask"></div>
+        </li>
+        <li>
+            <img src="./imgs/3.jpeg" alt="">
+            <div class="mask"></div>
+        </li>
+        <li>
+            <img src="./imgs/4.jpeg" alt="">
+            <div class="mask"></div>
+        </li>
+        <li>
+            <img src="./imgs/5.jpeg" alt="">
+            <div class="mask"></div>
+        </li>
+        <li>
+            <img src="./imgs/6.jpeg" alt="">
+            <div class="mask"></div>
+        </li>
+        <li>
+            <img src="./imgs/7.jpeg" alt="">
+            <div class="mask"></div>
+        </li>
+    </ul>
+    <script src="../jquery.js"></script>
+    <script>
+        $('li').each(function (index){
+            $(this).css('left', 157 * index)
+
+        })
+        $('li').mouseenter(function (){
+            if($('li').is(':animated')){
+                return;
+            }
+            var index = $(this).index();
+            // console.log(index)
+            // $('li:lt(' + (index + 1) + ')').each(function (i){
+        
+            //     $(this).css('left', 100 * i)
+            // })
+            // $('li:gt(' + (index+1) + ')').each(function (i){
+            //     $(this).css('right', 100 * (i+index) + 500)
+
+            // })
+
+            $(this).prevAll().each(function (i){
+                $(this).animate({
+                    left:100*(index-i-1)
+                }, 100)
+            })
+            $(this).animate({
+                left: 100 * index
+            }, 300);
+            $(this).nextAll().each (function (i){
+                $(this).animate({
+                    left:100 * (i + index ) + 500
+                }, 100 )
+
+            })
+            $(this).find('.mask').fadeOut(400);
+        })
+        $('li').mouseleave(function (){
+            $('li').each(function (index){
+                $(this).animate({
+                    left : 157 * index
+                },500)
+                $(this).find('.mask').fadeIn(400);
+            })
+        })
+       
+    </script>
+</body>
+</html>
