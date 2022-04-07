@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>30</h1>
+    <h1>30</h1>
+    <h1>30</h1>
+    <h1>30</h1>
+    <h1>30</h1>
+    <h1>30</h1>
+    <h1>30</h1>
+    <h1>30</h1>
+    <h1>30</h1>
+    <h1>30</h1>
+    <h1>30</h1>
+    <h1>30</h1>
+    <h1>30</h1>
+    <h1>30</h1>
+    <h1>30</h1>
+    <h1>30</h1>
+    <h1>30</h1>
+    <h1>30</h1>
+    <h1>30</h1>
+    <h1>30</h1>
+    <h1>30</h1>
+    <h1>30</h1>
+    <h1>30</h1>
+    <h1>30</h1>
+    <h1>30</h1>
+    <h1>30</h1>
+    <h1>30</h1>
+    <h1>30</h1>
+    <h1>30</h1>
+    <h1>30</h1>
+    <script>
+        var num = 0;
+        function demo (){
+            console.log(++num)
+        }
+        var lock = false;
+        window.onscroll = function (){
+            // if (lock){
+            //     return;
+            // }
+            // lock = true;
+            // demo();
+            // setTimeout(
+            //     function (){
+            //         lock = false;
+            //     }, 1000
+            // )
+            debounce(demo);
+        }
+        function debounce (fn){
+            if(fn.__lock){
+                return;
+            }
+            fn.__lock = true;
+            fn();
+            setTimeout(function (){
+                fn.__lock = false;
+            },1000)
+
+        }
+    </script>
+
+</body>
+</html>
