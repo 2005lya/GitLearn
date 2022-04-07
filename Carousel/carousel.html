@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+         *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        .list {
+            width: 500px;
+            height: 333px;
+            margin: 20px auto;
+            border: 1px solid #000;
+            position: relative;
+            overflow: hidden;
+
+
+        }
+        .content {
+            width: 2500px;
+            height: 333px;
+            font-size: 0;
+            position: absolute;
+            left: -500px;
+        }
+        .content img {
+            width: 500px;
+            height: 333px;
+        }
+        .prev,
+        .next {
+            position: absolute;
+            top:50%;
+            width: 30px;
+            height: 50px;
+            margin-top: -25px;
+            color: #fff;
+            background: rgba(0, 0, 0, 0.6);
+            font-size: 30px;
+            text-align: center;
+            line-height: 50px;
+        }
+        .prev {
+            left: 0;
+        }
+        .next {
+            right: 0;
+        }
+        .btns {
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 20px;
+            text-align: center;
+
+        }
+        .btns span {
+            padding: 6px;
+            margin: 0 6px ;
+            font-size: 0;
+            width: 12px;
+            height: 12px;
+            background-color:#fff ;
+            border-radius: 50%;
+        }
+        .btns span.choose {
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="list">
+        <div class="content">
+            <img src="./imgs/1.jpeg" alt="">
+            <img src="./imgs/2.jpeg" alt="">
+            <img src="./imgs/3.jpeg" alt="">
+            <img src="./imgs/4.jpeg" alt="">
+            <img src="./imgs/5.jpeg" alt="">
+        </div>
+        <div class="btns">
+            <span class="choose"></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="prev">&lt</div>
+        <div class="next">&gt</div>
+    </div>
+    <script src="../jquery.js"></script>
+    <script>
+        var $btns = $('.btns span');
+        var index = 0;
+        var $content = $('.content');
+        var timebar;
+        function startInterval (){
+            timebar = setInterval(function (){
+            index ++;
+            if(index >= 5){
+                index = 0;
+            }
+            change();
+            // $content.animate({
+            //     left : -index * 500
+            // }, 500, function (){
+            //     $btns
+            //     .eq(index).addClass('choose')
+            //     .siblings().removeClass('choose');
+
+            // })
+        },3000)
+        }
+        startInterval();
+        function change (fn){
+            $content.stop(true).animate({
+                left : -index * 500
+            }, 500, function (){
+                $btns
+                .eq(index).addClass('choose')
+                .siblings().removeClass('choose');
+            })
+            fn&&fn();
+
+        }
+        $btns.click(function (){
+            clearInterval(timebar);
+           var ind = $(this).index();
+           index = ind;
+        //    change(function (){
+        //        startInterval();
+        //    });
+        change(startInterval);
+        }
+        )
+        $('.next').click (function (){
+            clearInterval(timebar);
+            index ++;
+            if(index >= 5){
+                index = 0;
+            }
+            change(startInterval);
+        })
+        $('.prev').click (function (){
+            clearInterval(timebar);
+            index--;
+            if(index<0){
+                index = 4;
+            }
+            change(startInterval);
+        })
+    </script>
+</body>
+</html>
