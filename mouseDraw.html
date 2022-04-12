@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box1 {
+            width: 800px;
+            height: 600px;
+            border: 1px solid #000;
+            margin: 0 auto;
+            position: relative;
+        }
+        #box2 {
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            border: 1px solid #000;
+            background-color: green;
+            top:2px;
+            left: 4px;
+
+        }
+    </style>
+</head>
+<body>
+    <div id="box1">
+        <div id="box2"></div>
+    </div>
+    <script>
+        var box1 = document.getElementById('box1');
+        var box2 = document.getElementById('box2');
+        function getStyle(dom, el){
+            return getComputedStyle(dom).getPropertyValue(el);
+        }
+        function demo (e){
+            var x = e.clientX;
+            var y = e.clientY;
+            var top = box2._top + y - box2._y;
+            var left = box2._left + x - box2._x;
+            if(top<0){
+                top = 0;
+            } else if (top + box2.box2Height > box2.box1Height){
+                top = box2.box1Height - box2.box2Height;
+            }
+
+            if(left < 0){
+                left = 0;
+            } else if (left + box2.box2Width > box2.box1Width){
+                left = box2.box1Width - box2.box2Width;
+            }
+            box2.style.top = top + 'px';
+            box2.style.left = left + 'px';
+        }
+        box2.addEventListener('mousedown', function (e){
+            box2._top = parseInt(getStyle(box2, 'top'));
+            box2._left = parseInt(getStyle(box2, 'left'));
+            box2._x = e.clientX;
+            box2._y = e.clientY;
+            box2.box1Width = parseInt(getStyle(box1, 'width'));
+            box2.box1Height  = parseInt(getStyle(box1, 'height'));
+            box2.box2Width = parseInt(getStyle(box2, 'width'));
+            box2.box2Height  = parseInt(getStyle(box2, 'height'));
+            document.addEventListener('mousemove',demo)
+        })
+        box2.addEventListener('mouseup', function (){
+            document.removeEventListener('mousemove', demo)
+        })
+        
+    </script>
+</body>
+</html>
