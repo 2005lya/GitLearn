@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="app"></div>
+    <script>
+        var app = document.getElementById('app');
+        imageZoom(app, './imgs/moon.jpeg', 400, 400);
+        function css(dom, key, value){
+            if(typeof key === 'string'){
+                dom.style[key] = value;
+            } else {
+                for(var name in key){
+                    css(dom, name, key[name]);
+                }
+            }
+
+        }
+        function imageZoom (dom, url, width, height){
+            var mask = document.createElement('div');
+            var big = document.createElement('div');
+            dom.appendChild(mask);
+            dom.appendChild(big);
+            css(dom,{
+                width:width + 'px',
+                height: height +'px',
+                position: 'ralative',
+                backgroundImage: "url(" + url +")",
+                backgroundSize : 'cover',
+                border: '1px solid #ccc'
+            })
+            css(mask, {
+                width : width /8 + 'px',
+                height: height/8 + 'px',
+                position : 'absolute',
+                top: 0,
+                left: 0,
+                backgroundColor : 'yellow',
+                opacity: 0.5,
+                cursor: 'move',
+                display: 'none'
+            })
+            css(big, {
+                width: width + 'px',
+                height: height + 'px',
+                position: 'absolute',
+                top: 0,
+                left : '400px',
+                backgroundImage : "url(" + url +")",
+                border: '1px solid #ccc',
+            })
+
+            function getStyle(dom1, el){
+            return getComputedStyle(dom1).getPropertyValue(el);
+        }
+            function demo (e){
+            var x = e.clientX;
+            var y = e.clientY;
+            // var top = mask._top + y - mask._y;
+            // var left = mask._left + x - mask._x;
+            var top = y - mask.maskHeight/2;
+            var left = x - mask.maskWidth/2;
+            if(top<0){
+                top = 0;
+            } else if (top + mask.maskHeight > mask.domHeight){
+                top = mask.domHeight - mask.maskHeight;
+            }
+
+            if(left < 0){
+                left = 0;
+            } else if (left + mask.maskWidth > mask.domWidth){
+                left = mask.domWidth - mask.maskWidth;
+            }
+            mask.style.top = top + 'px';
+            mask.style.left = left + 'px';
+            css(big, {
+                backgroundPositionX : (x-25) * -8 + 'px',
+                backgroundPositionY : (y-25) * -8 + 'px'
+            })
+        }
+        dom.addEventListener('mouseenter', function (e){
+           
+            mask.addEventListener('mousemove', function (e){
+            mask._top = parseInt(getStyle(mask, 'top'));
+            mask._left = parseInt(getStyle(mask, 'left'));
+            mask._x = e.clientX;
+            mask._y = e.clientY;
+            mask.domWidth = parseInt(getStyle(dom, 'width'));
+            mask.domHeight  = parseInt(getStyle(dom, 'height'));
+            mask.maskWidth = parseInt(getStyle(mask, 'width'));
+            mask.maskHeight  = parseInt(getStyle(mask, 'height'));
+          
+            })
+            document.addEventListener('mousemove',demo);
+            
+            css(mask, 'display', 'block');
+        })
+        dom.addEventListener('mouseleave', function (){
+            document.removeEventListener('mousemove', demo);
+            css(mask, 'display', 'none');
+        })
+        }
+    </script>
+</body>
+</html>
