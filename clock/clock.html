@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+       
+</head>
+<body>
+    <canvas width="528", height="528", style="margin : 50px auto;border: 1px solid #000;  display: block;"></canvas>
+
+    <script>
+        var img = new Image();
+        img.onload = function (){
+            var canvas = document.getElementsByTagName('canvas')[0];
+            var ctx = canvas.getContext('2d');
+            ctx.translate(canvas.width / 2, canvas.height / 2);
+            ctx.drawImage(img, -img.width / 2, -img.height / 2);
+            ctx.arc(0, 0, 10, 0, 2 * Math.PI);
+            ctx.fillStyle = 'green';
+            ctx.fill();
+
+            ctx.lineWidth = 4;
+            ctx.strokeStyle = 'red';
+            line(0, 20, 0, -190);
+            
+            ctx.lineWidth = 5;
+            line(0, 20, 0 , -140);
+
+            ctx.lineWidth = 8;
+            line(0, 20, 0 , -100);
+
+            var deg = Math.PI / 30;
+
+            setInterval(function (){
+                var date = new Date();
+                var second = date.getSeconds();
+                var min = date.getMinutes();
+                var hour = date.getHours();
+                ctx.clearRect(-canvas.width/2, -canvas.height/2, canvas.width, canvas.height);
+                ctx.drawImage(img, -img.width / 2, -img.height / 2);
+                
+                ctx.save();
+                ctx.rotate(second * deg);
+                ctx.lineWidth = 4;
+                ctx.strokeStyle = 'red';
+                line(0, 20, 0, -190);
+                ctx.restore();
+                ctx.save();
+                ctx.rotate((min + second / 60 ) * deg);
+                ctx.lineWidth = 5;
+                ctx.strokeStyle = 'white';
+                line(0, 20, 0 , -140);
+                ctx.restore();
+                ctx.save();
+                ctx.rotate(deg * 5 * (hour + min / 60 + second / 3600));
+                ctx.lineWidth = 8;
+                ctx.strokeStyle = 'white';
+                line(0, 20, 0 , -100);
+                ctx.arc(0, 0, 10, 0, 2 * Math.PI);
+                ctx.fillStyle = 'green';
+                ctx.fill();
+                ctx.restore();
+            },200)
+            function line(x, y, endX, endY){
+            ctx.beginPath();
+            ctx.moveTo(x, y);
+            ctx.lineTo(endX, endY);
+            ctx.closePath();
+            ctx.stroke();
+            }
+            }
+            img.src = './clock.png';
+    </script>
+
+</body>
+</html>
