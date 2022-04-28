@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="text-align: center;">
+    <canvas id="app"></canvas>
+    <script src="./js/Background.js"></script>
+    <script src="./js/Bird.js"></script>
+    <script src="./js/Game.js"></script>
+    <script src="./js/Pipe.js"></script>
+    <script>
+        var imgList = [
+            './imgs/birdstay.png',
+            './imgs/birdup.png',
+            './imgs/birddown.png',
+            './imgs/bg1.png',
+            './imgs/bg2.png',
+            './imgs/pipedown.png',
+            './imgs/pipeup.png',
+            './imgs/land.png',
+        ];
+        function loadImage (arr, callback){
+            let result = [];
+            var num =0;
+            for(var i = 0 ; i < arr.length; i++){
+                var img = new Image ();
+                img.onload = function (){
+                    num ++;
+                    if(num === arr.length){
+                        callback(result);
+                    }
+                }
+                img.src = arr[i];
+                result.push(img);
+            }
+        }
+        loadImage (imgList, function (arr){
+            var canvas = document.getElementById('app');
+            var ctx = canvas.getContext('2d');
+            var width = arr[7].width;
+            var height = arr[3].height;
+            this.h = 400;
+            canvas.width = width;
+            canvas.height = height;
+            var bird = new Bird(arr.slice(0, 3), 100, 100);
+            var pipe = new Pipe(arr[6], arr[5], 4, width, h)
+            var land = new Background(arr[7], 4, h);
+            var mount = new Background(arr[3], 2, 0);
+            var game = new Game(ctx, bird, pipe, land, mount);
+            game.init();
+        }
+        );
+    </script>
+</body>
+</html>
