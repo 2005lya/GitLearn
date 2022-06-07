@@ -1,0 +1,164 @@
+* {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.header {
+    width: 1500px;
+    height: 30px;
+    margin: 20px auto;
+    background-color: #F6F6F7;
+    position: relative;
+    .cart {
+        position: absolute;
+        left: 1100px;
+        span {
+            display: inline-block; 
+            position: absolute;
+            left:200px;
+            padding-top: 7px;
+            padding-bottom: 7px; 
+            text-align: center;
+            font-size: 12px;
+            color: #888888;
+            cursor: pointer;
+            width: 80px;
+            
+        }
+        ul {
+            margin-top: 30px;
+            width: 280px;
+            border: 1px solid #CCCCCC;
+            background-color: white;
+            display: none;
+            li {
+                display: none;
+                margin-top: 10px;
+                .left_image {
+                    background-image: url('https://mrdevelopertestassets.s3.ap-southeast-2.amazonaws.com/classic-tee.jpg');
+                    background-repeat: no-repeat;
+                    background-size:cover;
+                    float: left;
+                    width: 60px;
+                    height: 90px;
+                    margin-left: 20px;
+                    margin-right: 20px;
+                }
+                .cart_title {
+                    font-size: 12px;
+                    margin-bottom: 10px;
+                    
+                }
+                .cart_price {
+                    font-size: 14px;
+                    margin-bottom: 20px;
+                    
+                }
+                .cart_size {
+                    font-size: 12px;
+                    margin-bottom: 30px;
+                    
+                }
+                &.addshow {
+                    display: block;
+                 }  
+                
+            } 
+            // .addshow {
+            //     display: block;
+            //  }  
+        }
+        &.show {
+            ul {
+                display: block;
+            }
+            span {
+                border: 1px solid #CCCCCC;
+                border-bottom: none;
+            }
+        }
+    }
+}
+
+.left {
+    margin-left: 500px;
+    width: 400px;
+    height: 600px;
+    background-image: url('https://mrdevelopertestassets.s3.ap-southeast-2.amazonaws.com/classic-tee.jpg');
+    background-repeat: no-repeat;
+    background-size:cover;
+    float: left;
+
+}
+.right { 
+    margin-left: 150px;
+    float: left;
+    width: 530px;
+    height: 400px;
+    .title {
+        font-size: 18px;
+        margin-bottom: 20px;
+    }
+    .price {
+        font-size: 14px;
+        margin-bottom: 20px;
+        padding-top: 5px;
+        padding-bottom: 10px;
+        border-bottom: 1px solid #CCCCCC;
+        border-top: 1px solid #CCCCCC;
+    }
+    .description {
+        height: 100px;
+        line-height: 20px;
+        font-size: 12px;
+        color: #888888;
+    }
+    .text {
+        font-size: 14px;
+        color:#888888 ;
+        margin-bottom: 15px;
+    }
+    .text::after{
+        content: '*';
+        color: #C90000;
+    }
+    
+   .options span {
+        width: 40px;
+        height: 40px;
+        color: #888888;
+        display: inline-block;
+        text-align: center;
+        line-height: 40px;
+        font-size: 12px;
+        border: 1px solid #CCCCCC;
+        margin-top: 20px;
+       
+        &.choosen {
+            border: 2px solid #222222; 
+        }
+    }
+    .s {
+        cursor: pointer;
+    }
+    .add {
+        margin-top: 20px;
+        width: 130px;
+        height: 30px;
+        color: #222222;
+        border: 3px solid #222222;
+        line-height: 30px;
+        text-align: center;
+        font-size: 12px;
+        font-weight: bold;
+        cursor: pointer;
+    }
+    .add:hover {
+        background-color:#222222;
+        color: white;
+
+    }
+
+
+}

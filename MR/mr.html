@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+      <div class="header">
+          <div :class="{
+              cart:true,
+              show:isShow
+            }"
+            @mouseenter="show"
+            @mouseleave='hide'
+            >
+              <span>
+                My Cart({{num}})</span>
+              <ul>
+                  <li :class="li[0]">
+                      <div class="left_image"></div>
+                      <div class="cart_title">Classic Tee</div>
+                      <div class="cart_price">{{quantity[0]}}x {{price}}</div>
+                      <div class="cart_size">Size: S</div>
+                  </li>
+                  <li :class="li[1]">
+                      <div class="left_image"></div>
+                      <div class="cart_title">Classic Tee</div>
+                      <div class="cart_price">{{quantity[1]}}x {{price}}</div>
+                      <div class="cart_size">Size: M</div>
+                  </li>
+                  <li :class="li[2]">
+                    <div class="left_image"></div>
+                    <div class="cart_title">Classic Tee</div>
+                    <div class="cart_price">{{quantity[2]}}x {{price}}</div>
+                    <div class="cart_size">Size: L</div>
+                </li>
+              </ul>
+          </div>
+      </div>
+      <div class="left">   
+      </div>
+      <div class="right">
+          <div class="title">Classic Tee</div>
+          <div class="price">$75.00</div>
+          <div class="description">
+              <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+        </p>
+          </div>
+          <div class="size">
+              <span class="text">SIZE</span>
+              <span style="color: red;font-size: 12px;">{{sizes[0]}}</span>
+              <span style="color: red;font-size: 12px;">{{sizes[1]}}</span>
+              <span style="color: red;font-size: 12px;">{{sizes[2]}}</span>
+              <div class="options">
+                  <span :style="{border: bd[0]}" @click="toggle('S')">S</span>
+                  <span :style="{border: bd[1]}"@click="toggle('M')">M</span>
+                  <span :style="{border: bd[2]}"@click="toggle('L')">L</span>
+              </div>
+          </div>
+          <div class="add" @click="add">ADD TO CART</div>
+      </div>
+    </div>
+    <script src="./dist/mr.js"></script>
+
+
+</body>
+</html>
