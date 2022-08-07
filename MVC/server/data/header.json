@@ -1,0 +1,32 @@
+{
+    "logo" : "images/logo.png",
+    "icon" :[
+        {
+            "img":"images/icon-rss.png",
+            "href": "index.html"
+        },{
+            "img":"images/icon-facebook.png",
+            "href": "index.html"
+        },
+        {
+            "img":"images/icon-twitter.png",
+            "href": "index.html"
+        },
+        {
+            "img":"images/icon-googleplus.png",
+            "href": "index.html"
+        },
+        {
+            "img":"images/icon-dribble.png",
+            "href": "index.html"
+        },
+        {
+            "img":"images/icon-flickr.png",
+            "href": "index.html"
+        },
+        {
+            "img":"images/icon-tumblr.png",
+            "href": "index.html"
+        }
+    ]
+}

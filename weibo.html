@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        ul li span {
+            margin-left: 20px;
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Messages:<span>0</span></h2>
+    <ul>
+        <li>Comments:</li>
+        
+    </ul>
+    <textarea ></textarea>
+    <button>submit</button>
+    <script src = './ickt.js'></script>
+    <script>
+        //message module
+        (function (){
+            var num = 0;
+            var dom = document.getElementsByTagName('h2')[0].getElementsByTagName('span')[0];
+            console.log(dom)
+            _.Observer.on('addMessage', function (msg){
+                // console.log(msg)
+                num++;
+                dom.innerHTML = num;
+            })
+            _.Observer.on('deleteMessage', function (){
+                num--;
+                dom.innerHTML = num;
+            })
+    
+        })()
+    </script>
+    <script>
+        //content module
+        (function (){
+            var dom = document.getElementsByTagName('ul')[0]
+
+            _.Observer.on('addMessage', function(msg){
+                // console.log(msg)
+                var li = document.createElement('li')
+                var text = document.createTextNode(msg)
+                var close = document.createElement('span');
+                close.innerHTML = '&times;'
+                li.appendChild(text);
+                li.appendChild(close)
+                dom.appendChild(li)
+                close.onclick = function (){
+                    dom.removeChild(li);
+                    _.Observer.trigger('deleteMessage')
+                }
+            })
+            
+        })()
+    </script>
+    <script>
+        //comment module
+        (function (){
+            var btn = document.getElementsByTagName('button')[0];
+            var textarea = document.getElementsByTagName('textarea')[0];
+            btn.onclick = function(){
+                var text = textarea.value;
+                // console.log(text);
+                if(text){
+                    _.Observer.trigger('addMessage', text);
+                    textarea.value = '';
+                }
+            }
+        })()
+    </script>
+</body>
+</html>

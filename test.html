@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul id="ul">
+        <li>夏侯惇</li>
+        <li>夏侯渊</li>
+        <li>典韦</li>
+        <li>许褚</li>
+        <li>徐晃</li>
+        <li>张辽</li>
+    </ul>
+    <script>
+        var ul = document.getElementById('ul')
+        ul.onclick= function (e){
+            // console.log(e,111, this)
+
+            var lis = this.children;
+            console.log(lis)
+            for(var i =0 ; i< lis.lenth; i++){
+                lis[i].style.backgroundColor = ''
+            }
+            e.target.style.backgroundColor='red';
+
+        }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: -1;
+        }
+
+        .bg-item {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center top;
+        }
+    </style>
+</head>
+<body>
+    <div id="app"></div>
+    <script src="./server/lib/MVC.js"></script>
+    <script src="./server/lib/jquery.js"></script>
+    <script>
+
+        // Model
+        MVC.addModel('bg',  {
+            imgs : [
+                './imgs/01.jpeg',
+                './imgs/02.jpeg',
+                './imgs/03.jpeg',
+                './imgs/04.jpeg',
+                './imgs/05.jpeg',
+                './imgs/06.jpeg',
+            ]
+        })
+
+        //View
+        MVC.addView('bg', function(M){
+
+            let data = M.get('bg');
+            // console.log(data);
+            let dom = $('<div class="bg"></div>');
+            let html = "";
+            data.imgs.forEach(item => {
+                html += `<div class="bg-item" style="background-image:url(${item});"></div>`
+            });
+            return dom.html(html).insertBefore('#app');
+        })
+
+        //Ctrl
+
+        MVC.addCtrl('bg', function(M, V){
+            let dom = V.render('bg');
+            let imgs = dom.find('.bg-item');
+            let len = imgs.length;
+            let index = 0;
+           
+            setInterval(() => {
+                imgs
+                   .eq(index % len).fadeIn(500)
+                   .siblings().fadeOut(500);
+                index++;
+
+
+            }, 2000)
+
+
+        })
+
+        //install
+
+        MVC.install();
+    </script>
+</body>
+</html>

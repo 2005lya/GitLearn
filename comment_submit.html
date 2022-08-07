@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>message :<span>0</span></h2>
+    <ul>
+        <li>comment</li>
+    </ul>
+    <textarea name="" id="" cols="30" rows="10"></textarea>
+    <button>submit</button>
+
+    <script>
+        // Message Module
+        (function (){
+
+        })()
+    </script>
+    <script>
+        // Content Module
+        (function (){})()
+    </script>
+    <script>
+        // Comment Module
+        (function (){
+            var btn = document.getElementsByTagName('button')[0];
+            var textarea = document.getElementsByTagName('textarea')[0];
+            btn.onclick = function (){
+                var text = textarea.value;
+                
+                if(text){
+
+                }
+            }
+
+        })()
+    </script>
+</body>
+</html>

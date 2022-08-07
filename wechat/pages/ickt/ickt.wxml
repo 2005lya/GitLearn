@@ -1,0 +1,6 @@
+<view>
+<view>{{color}}</view>
+<view>{{msg}}</view>
+<view>{{obj.size.width * obj.size.height}}</view>
+<view>{{arr[1]}}</view>
+</view>

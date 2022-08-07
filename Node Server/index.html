@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <h1>this is my first title</h1>
+    <p>this is my first paragraph</p> -->
+
+    <!-- <form action="http://127.0.0.1:3000/process_get" method="GET">
+        First Name : <input type="first_name"> <br>
+        Last Name : <input type="last_name"> <br>
+        <input type="submit" value='Submit'>
+    </form> -->
+    <!-- <form action="http://127.0.0.1:3000/process_get" method="POST">
+        First Name: <input type="text" name="first_name">  <br>
+         
+        Last Name: <input type="text" name="last_name">
+        <input type="submit" value="Submit">
+        </form> -->
+        <div id="demo"></div>
+        <div id="demo1"></div>
+        <div id="demo2"></div>
+
+    <script>
+        //  setTimeout(function () {
+        //     document.getElementById("demo1").innerHTML="RUNOOB-1!";
+        // }, 3000);
+        // document.getElementById("demo2").innerHTML="RUNOOB-2!";
+        // console.log("2");
+
+//         var xhr = new XMLHttpRequest();
+ 
+//       xhr.onload = function () {
+//     // 输出接收到的文字数据
+//     document.getElementById("demo").innerHTML=xhr.responseText;
+//      }
+ 
+//       xhr.onerror = function () {
+//     document.getElementById("demo").innerHTML="请求出错";
+// }
+ 
+// // 发送异步 GET 请求
+//     xhr.open("GET", "https://www.runoob.com/try/ajax/ajax_info.txt", true);
+//    xhr.send();
+
+
+// setTimeout(function (){
+//     console.log('first');
+//     setTimeout(function(){
+//         console.log('second');
+//         setTimeout(function (){
+//             console.log('third')
+//         }, 3000)
+//     }, 4000)
+// }, 1000)
+
+// new Promise (function(resolve, reject){
+//     setTimeout(function(){
+//         console.log('first');
+//         resolve();
+//     }, 1000)
+// }).then(function(){
+//     return new Promise( function(resolve, reject){
+//         setTimeout(function (){
+//             console.log('second');
+//             resolve();
+//         }, 4000)
+
+//     })
+// }).then(function (){
+//     return new Promise (function (resolve, reject){
+//         setTimeout(function(resolv, reject){
+//             console.log('third');
+//             resolve();
+//         }, 3000)
+
+//     })
+// })
+
+
+// new Promise (function (resolve, reject){
+//     var a = 0; 
+//     var b = 1;
+//     if(b == 0) reject('Divice zero');
+//     else resolve(a/b)
+// }).then(function(value){
+//     console.log('a/b = ' + value)
+// }).catch(function(err){
+//     console.log(err);
+// }).finally(function(){
+//     console.log('end')
+// })
+
+
+
+// function print(delay, message){
+//     return new Promise(function(resolve, reject){
+//         setTimeout(function (){
+//             console.log(message);
+//             resolve();
+//         }, delay)
+//     })
+
+// }
+
+// // print(1000, 'first').then(function(){
+// //     return print(4000, 'second')
+// // }).then(function (){
+// //     return print(3000, 'third')
+// // })
+
+// async function asyncFunc(){
+//     await print(1000,'first');
+//     await print(4000, 'second');
+//     await print(3000, 'third')
+// }
+
+// asyncFunc()
+
+
+// function person(firstname,lastname,age,eyecolor)
+// {
+//     this.firstname=firstname;
+//     this.lastname=lastname;
+//     this.age=age;
+//     this.eyecolor=eyecolor;
+//     return [this.firstname,this.lastname,this.age,this.eyecolor,this] 
+// }
+
+// var myFather=new person("John","Doe",50,"blue");
+// var myMother=person("Sally","Rally",48,"green");
+// console.log(myFather) // this 输出一个 person 对象
+// console.log(myMother) // this 输出 window 对象
+var person = {
+  firstName: "John",
+  lastName : "Doe",
+  id       : 5566,
+  fullName : function() {
+    return this.firstName + " " + this.lastName;
+  }
+};
+console.log(person.fullName())
+    </script>
+</body>
+</html>

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app"></div>
+    <script src="./server/lib/jquery.js"></script>
+    <script>
+        let MVC = (function(){
+            let Model = (function (){
+                let _model = {};
+                return {
+                    set(key, value){
+                        let keys = key.split('.');
+                        let saveKey = keys.pop();
+                        let result = _model;
+                        // console.log(_model);
+                        keys.forEach(item => {
+                            if(result[item] === undefined){
+                                result[item] = {};
+                            }
+                            if(result[item] !== null && (typeof result[item] === 'object' || typeof result[item] === 'function')) {
+                                result = result[item];
+                            } else {
+                                throw new Error(`attribute the type of ${item} is ${typeof result[item]}  and can't be added`);
+                            }
+                        })
+                        result[saveKey] = value;
+                         
+                    },
+                    get(key){
+                       let keys = key.split('.');
+                       let result = _model;
+                       keys.forEach(item => {
+                           result = result[item];
+                           if(result === undefined){
+                               throw new Error(`attribute ${item} is undefine,can't to be continue`);
+                           }
+                       });
+                       return result;
+                       
+                    }
+                };
+            })()
+
+            let View = (function(){
+                let _view = {};
+                return {
+                    add(key, fn){
+                        _view[key] = fn;
+                        console.log(_view,111, _view[key],222, _view[key](Model)[0]);
+                    },
+                    render(key){
+                       return  _view[key] && _view[key](Model);
+                       
+                    }
+                };
+            })()
+
+            let Ctrl = (function(){
+                let _ctrl = {};
+                return {
+                    add(key, fn){
+                        _ctrl[key] = fn;
+                    },
+                    init(key){
+                        return _ctrl[key] && _ctrl[key]();
+
+                    },
+                    install(){
+                        for(let key in _ctrl){
+                            this.init(key);
+                        }
+                    }
+                };
+            })()
+
+            return {
+                addModel(key, value){
+                    Model.set(key, value);
+                },
+
+                addView(key, value){
+                    View.add(key, value);
+
+                },
+
+                addCtrl(key, value){
+                    Ctrl.add(key, value);
+
+                },
+
+                install() {
+                    Ctrl.install();
+                }
+            };
+        })()
+
+// MVC.addModel('msg',  {
+//             imgs : [
+//                 './images/01.jpeg',
+//                 './images/02.jpeg',
+//                 './images/03.jpeg',
+//                 './images/04.jpeg',
+//                 './images/05.jpeg',
+//                 './images/06.jpeg',
+//             ]
+//         });
+MVC.addModel('msg', 'hello');
+
+// MVC.addModel("msg", "hello")
+MVC.addView('msg', function(M){
+    let data = M.get('msg');
+    // console.log(333, data)
+    let dom = $('<div class="msg"></div>');
+    // console.log(dom)
+    let html = data;
+    // console.log(111, dom[0]);
+    return dom.html(html).insertBefore('#app');
+    
+});
+// MVC.addCtrl('msg', function(M, V){
+//     let dom = V.render('msg');
+
+// })
+
+
+// MVC.addModel('msg', 'hello');
+
+// let a = {};
+// let b = {
+//     null : {
+//         color : "red"
+//     }}
+
+// console.log(a, b);
+
+// MVC.addModel('ickt.obj.msg.ickt', 'ickt');
+
+
+    </script>
+</body>
+</html>

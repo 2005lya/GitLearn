@@ -1,0 +1,21 @@
+@navColor: #604b88;
+.wcenter (@w:auto, @mt:0, @mb:@mt) {
+    width: @w;
+    margin: @mt auto @mb;
+}
+.hlh(@h) {
+    height: @h;
+    line-height: @h;
+}
+.ui-btn (@c:@navColor, @bg: #fff){
+    padding: 10px 40px;
+    font-size: 18px;
+    color:@c;
+    border: 1px solid @c;
+    border-radius: 8px;
+    &:hover {
+        color: @bg;
+        background-color: @c;
+    }
+
+}

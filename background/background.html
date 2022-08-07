@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .list {
+            text-align: center;
+        }
+        img {
+            width: 200px;
+            margin: 0 10px;
+        }
+        body {
+            background-repeat: no-repeat;
+            background-position: center top;
+            background-size: cover;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="list">
+        <img src="./imgs/a.jpg" alt="">
+        <img src="./imgs/b.jpg" alt="">
+        <img src="./imgs/c.jpg" alt="">
+        <img src="./imgs/d.jpg" alt="">
+        <img src="./imgs/e.jpg" alt="">
+    </div>
+    <script>
+        var imgs = document.getElementsByTagName('img');
+        for (var i = 0; i < imgs.length; i++){
+            imgs[i].onclick = function (){
+                var url = this.getAttribute('src');
+                console.log(url);
+                document.body.style.backgroundImage = 'url(' + url + ')';
+            }
+        }
+
+    </script>
+</body>
+</html>
