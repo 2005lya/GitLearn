@@ -114,7 +114,6 @@ Game.prototype.checkLand = function (){
     if(this.land.y - this.bird.y < this.bird.img.height / 2){
         this.gameover();
     }
-
 }
 
 Game.prototype.checkPipe = function (){
