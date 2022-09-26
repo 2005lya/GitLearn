@@ -1,0 +1,107 @@
+[
+    {
+        "id" : 1,
+        "title": "Cost of living: Government to simplify broadband access",
+        "content": "The government is launching a new system to ",
+        "img": "/img/01.jpeg",
+        "type":"1h | Tech"
+    },
+    {
+        "id" : 2,
+        "title": "Disney adds subscribers but warns over cricket loss",
+        "content":"Disney will launch a new ad-supported streaming service ",
+        "img": "/img/02.jpeg",
+        "type":"2h | Economy "
+    },
+    {
+        "id" : 3,
+        "title": "Nasa space telescope delivers spectacular pictures",
+        "content":"Stunning images of a stellar nursery and a cosmic dance ",
+        "img": "/img/03.jpeg",
+        "type":"3h | Science"
+    },
+    {
+        "id" : 4,
+        "title": "Cost of living: Government to simplify broadband access",
+        "content": "The government is launching a new system to",
+        "img": "/img/01.jpeg",
+        "type":"4h | Tech"
+    },
+    {
+        "id" : 5,
+        "title": "Cost of living: Government to simplify broadband access",
+        "content": "The government is launching a new system",
+        "img": "/img/01.jpeg",
+        "type":"5h | Tech"
+    },
+    {
+        "id" : 6,
+        "title": "Cost of living: Government to simplify broadband access",
+        "content": "The government is launching a new system ",
+        "img": "/img/01.jpeg",
+        "type":"6h | Tech"
+    },
+    {
+        "id" : 7,
+        "title": "Disney adds subscribers but warns over cricket loss",
+        "content":"Disney will launch a new ad-supported streaming ",
+        "img": "/img/02.jpeg",
+        "type":"7h | Economy "
+    },
+    {
+        "id" : 8,
+        "title": "Nasa space telescope delivers spectacular pictures",
+        "content":"Stunning images of a stellar nursery and a cosmic dance",
+        "img": "/img/03.jpeg",
+        "type":"8h | Science"
+    },
+    {
+        "id" : 9,
+        "title": "Cost of living: Government to simplify broadband access",
+        "content": "The government is launching a new system to simplify",
+        "img": "/img/01.jpeg",
+        "type":"9h | Tech"
+    },
+    {
+        "id" : 10,
+        "title": "Disney adds subscribers but warns over cricket loss",
+        "content":"Disney will launch a new ad-supported streaming ",
+        "img": "/img/02.jpeg",
+        "type":"10h | Economy "
+    },
+    {
+        "id" : 11,
+        "title": "Nasa space telescope delivers spectacular pictures",
+        "content":"Stunning images of a stellar nursery and a cosmic",
+        "img": "/img/03.jpeg",
+        "type":"11h | Science"
+    },
+    {
+        "id" : 12,
+        "title": "Cost of living: Government to simplify broadband access",
+        "content": "The government is launching a new system to simplify",
+        "img": "/img/01.jpeg",
+        "type":"12h | Tech"
+    },
+    {
+        "id" : 13,
+        "title": "Disney adds subscribers but warns over cricket loss",
+        "content":"Disney will launch a new ad-supported streaming",
+        "img": "/img/02.jpeg",
+        "type":"13h | Economy "
+    },
+    {
+        "id" : 14,
+        "title": "Nasa space telescope delivers spectacular pictures",
+        "content":"Stunning images of a stellar nursery and a cosmic dance ",
+        "img": "/img/03.jpeg",
+        "type":"14h | Science"
+    },
+    {
+        "id" : 15,
+        "title": "Cost of living: Government to simplify broadband access",
+        "content": "The government is launching a new system to simplify",
+        "img": "/img/01.jpeg",
+        "type":"15h | Tech"
+    }
+]
